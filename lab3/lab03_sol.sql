@@ -72,8 +72,30 @@ USE movie_ratings;
 
 /* END OF STEP 1-5 */
 
+----------------------------------------------------------
 
 -- STEPS 6+ -- 
+
+/*
+The issue with the database design from steps 1-5
+revolves around Movies having a multivalued field
+Genres. 
+
+The reason that multivalued fields are bad is that 
+1) adding genres to a movie is not easily 
+extensible; it would require unncecessary operations. 
+2) selecting movies by genres would not be easy and cheap;
+if we wanted to ask what comedies are there, we would not 
+simply be able to query comedy movies.
+
+The solution is to store Genres separate from Movies.
+This allows us to link movies to genres while also 
+maintaining unique primary keys on each row. 
+
+In sum, the solution is to use MovieGenres linking 
+table to link Movies and Genres together
+*/
+
 DROP DATABASE IF EXISTS movie_ratings;
 CREATE DATABASE movie_ratings;
 USE movie_ratings;
@@ -160,6 +182,7 @@ VALUES
     (2, 3, "2017-03-27 00:12:48", 2),
     (2, 4, "2018-08-02 00:54:42", 4);
 
+/* INSERT values into MovieGenres linking table */ 
 INSERT INTO MovieGenres(movie_id, genre_id) 
 VALUES 
     (1, 1),
@@ -176,5 +199,3 @@ SELECT first_name, last_name, movie_title, number_stars
 FROM Movies
 NATURAL JOIN Ratings
 NATURAL JOIN Consumers;
-
--- 

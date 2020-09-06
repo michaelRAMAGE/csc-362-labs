@@ -1,0 +1,125 @@
+/*
+    Field specifications LAB3
+*/
+
+FIELD SPECIFICATIONS
+
+GENERAL ELEMENTS
+
+Field Name:           Address 
+
+Specification Type:
+  Unique:  X 
+  Generic: _ 
+  Replica: _ 
+Parent Table:         Consumers
+Label:                Users 
+Source Specification: _ 
+Shared By:            _ 
+Aliases:              _ 
+Description:          Address of a consumer of a movie we have. In order
+                      to better understand how movies are perceived, we 
+                      use general addressing. 
+
+
+PHYSICAL ELEMENTS
+
+Data Type:            VARCHAR 
+Length:               46 
+Decimal Places:       _ 
+Input Mask:           #### Street Suffix 
+Display Format:       #### Street Suffix        
+Character Support:
+  Letters (A-Z):      X 
+  Numbers (0-9):      X 
+  Keyboard (.,/$#%):  _ 
+  Special (©®™Σπ):    _ 
+
+
+LOGICAL ELEMENTS
+
+Key Type:      Non:        X 
+               Primary:    _ 
+               Foreign:    _ 
+               Alternate:  _ 
+
+Key Structure: Simple:     _ 
+               Composite:  _ 
+
+Uniqueness:    Non-unique: X 
+               Unique:     _ 
+
+Null Support:  Nulls OK:   X 
+               No nulls:    
+
+Values Entered By: User:   X 
+                   System: _ 
+
+Required Value:    No:     X 
+                   Yes:    _ 
+
+Default Value:     null 
+
+Range of Values:   Any valid street 
+
+Edit Rule:
+  Enter now, edits allowed:       X 
+  Enter now, edits not allowed:   _ 
+  Enter later, edits allowed:     X 
+  Enter later, edits not allowed: _ 
+  Not determined at this time:    _ 
+
+Comparisons Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                =    X 
+                >    _ 
+                >=   _ 
+                !=   X 
+                <    _ 
+                <=   _ 
+
+  Other Fields: _
+                ALL  _ 
+                =    X 
+                >    _ 
+                >=   _ 
+                !=   _ 
+                <    _ 
+                <=   _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                =    X 
+                >    _ 
+                >=   _ 
+                !=   X 
+                <    _ 
+                <=   _ 
+
+Operations Allowed:
+  Same Field:   _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Other Fields: _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+  Value Expr.:  _ 
+                ALL  _ 
+                +    _ 
+                -    _ 
+                *    _ 
+                /    _ 
+
+NOTES:
+My number of 46 is based on what USPS uses for address 1 and address 2.
+This seemes to be a reasonable character cap on street addresses. 
+https://support.shippingeasy.com/hc/en-us/articles/204065539-Character-Limits-for-USPS-Labels-Overview

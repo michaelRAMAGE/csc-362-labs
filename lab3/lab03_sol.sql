@@ -14,7 +14,7 @@ USE movie_ratings;
 -- -- Create Movies table 
 -- CREATE TABLE Movies (
 --     PRIMARY KEY (movie_id),
---     movie_id INT AUTO_INCREMENT,
+--     movie_id INT AUTO_INCREMENT NOT NULL,
 --     movie_title VARCHAR(65),
 --     release_date DATE,
 --     genre VARCHAR(100)
@@ -23,7 +23,7 @@ USE movie_ratings;
 -- -- Create Consumers table 
 -- CREATE TABLE Consumers (
 --     PRIMARY KEY (consumer_id),
---     consumer_id INT AUTO_INCREMENT,
+--     consumer_id INT AUTO_INCREMENT NOT NULL,
 --     first_name VARCHAR(20),
 --     last_name VARCHAR(20),
 --     address VARCHAR(46),
@@ -35,9 +35,9 @@ USE movie_ratings;
 -- --  Create Ratings table 
 -- CREATE TABLE Ratings (
 --     PRIMARY KEY(rating_id),
---     rating_id INT AUTO_INCREMENT,
---     consumer_id INT,
---     movie_id INT, 
+--     rating_id INT AUTO_INCREMENT NOT NULL,
+--     consumer_id INT NOT NULL,
+--     movie_id INT NOT NULL, 
 --     when_rated DATETIME, 
 --     number_stars INT,
 --     CONSTRAINT tb_fk1 FOREIGN KEY(consumer_id) REFERENCES
@@ -103,7 +103,7 @@ USE movie_ratings;
 /* Create Movies table without multivalued genre field */ 
 CREATE TABLE Movies (
     PRIMARY KEY (movie_id),
-    movie_id INT AUTO_INCREMENT,
+    movie_id INT AUTO_INCREMENT NOT NULL,
     movie_title VARCHAR(65),
     release_date DATE
 );
@@ -111,7 +111,7 @@ CREATE TABLE Movies (
 -- Create Consumers table 
 CREATE TABLE Consumers (
     PRIMARY KEY (consumer_id),
-    consumer_id INT AUTO_INCREMENT,
+    consumer_id INT AUTO_INCREMENT NOT NULL,
     first_name VARCHAR(20),
     last_name VARCHAR(20),
     address VARCHAR(46),
@@ -123,9 +123,9 @@ CREATE TABLE Consumers (
 --  Create Ratings table 
 CREATE TABLE Ratings (
     PRIMARY KEY(rating_id),
-    rating_id INT AUTO_INCREMENT,
-    consumer_id INT,
-    movie_id INT, 
+    rating_id INT AUTO_INCREMENT NOT NULL,
+    consumer_id INT NOT NULL,
+    movie_id INT NOT NULL, 
     when_rated DATETIME, 
     number_stars INT,
     CONSTRAINT tb_fk1 FOREIGN KEY(consumer_id) REFERENCES
@@ -137,14 +137,14 @@ CREATE TABLE Ratings (
 /* Create data table Genres for holding Genres */ 
 CREATE TABLE Genres (
     PRIMARY KEY(genre_id),
-    genre_id INT AUTO_INCREMENT,
+    genre_id INT AUTO_INCREMENT NOT NULL,
     genre VARCHAR(15)
 );
 
 /* CREATE MovieGenres linking table */
 CREATE TABLE MovieGenres (
     PRIMARY KEY(moviegenre_id),
-    moviegenre_id INT AUTO_INCREMENT,
+    moviegenre_id INT AUTO_INCREMENT  NOT NULL,
     movie_id INT,  
     genre_id INT,
     CONSTRAINT mv_fk FOREIGN KEY(movie_id) REFERENCES Movies(movie_id),

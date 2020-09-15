@@ -1,0 +1,23 @@
+Rugs -----
+
+'ghana x 2007 20x10 cotton',10000,09/10/2018,20000
+'china hanfu 2007 15x15 silk',20000,09/10/2020,40000
+'unitedstates z 2007 20x50 cotton',100,09/10/2015,400
+'kazahkastan a 2004 15x5 cotton',213000,09/10/2007,413000
+'russia b 2007 20x10 wool',5000,09/10/2010,10000
+'neverneverland c 2010 8x10 chocolate',102033,09/10/2020,2000000
+
+Customers -----
+
+Cases
+    Duplicate Numbers
+    Duplicate Addresses
+
+Laura,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6333
+Nell,Steven,2561  Kelley Road, Gulfport,MS,39501,(228) 378-1359
+Donna,Frank,1415  Washington Avenue,Phoenix,AZ,85012,(602) 221-6555
+Shawn,Browning,4105  Davisson Street, MANCHESTER CENTER,VT,05255,(765) 969-4882
+Frank,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6322
+Jaina,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6322
+
+

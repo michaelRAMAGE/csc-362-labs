@@ -1,0 +1,63 @@
+Rugs -----
+
+Cases   
+    Carpet from two years ago
+    Carpet from less than two years ago
+
+1,'ghana x 2007 20x10 cotton',10000,09/10/2018,20000
+2,'china hanfu 2007 15x15 silk',20000,09/10/2020,40000
+3,'unitedstates z 2007 20x50 cotton',100,09/10/2015,400
+4,'kazahkastan a 2004 15x5 cotton',213000,09/10/2007,413000
+5,'russia b 2007 20x10 wool',5000,09/10/2010,10000
+6,'neverneverland c 2010 8x10 chocolate',102033,09/10/2020,2000000
+7,'france eiffel 2008 20x10 wool',5000,09/10/2012,10000
+8,'nepal everest 2009 8x10 silk',102033,09/10/2015,2000001
+9,'germany zombie 2013 20x10  leather',5000,09/10/2014,10000
+
+Customers -----
+    Cases
+        Duplicate Numbers
+        Duplicate Addresses
+
+1, Laura,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6333
+2,Nell,Steven,2561  Kelley Road, Gulfport,MS,39501,(228) 378-1359
+3,Donna,Frank,1415  Washington Avenue,Phoenix,AZ,85012,(602) 221-6555
+4,Shawn,Browning,4105  Davisson Street, MANCHESTER CENTER,VT,05255,(765) 969-4882
+5,Frank,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6322
+6,Jaina,Ortiz,1144  Quiet Valley Lane, Irvine,CA,92614,(818) 939-6322
+
+Customer_Purchases
+    Cases
+        Buy a carpet listed over two years ago for less than list and purchase price (net rule)
+        Buy a carpet more than a year ago (inactivity rule)
+        Buy a carpet and return 
+
+1,1,9/09/2018,9000,null
+2,3,6/05/2019,400,null
+3,5,9/09/2019,10000,9/15/2019
+3,6,7/20/2019,2000000,null
+2,2,9/11/2020,40000,null
+
+Customer_Trials
+    Cases
+        Buy carpet while on triall 
+        Return carpet 
+        A customer who uses 4 trials
+        Someone gets trial on previously purchased but returned item
+
+2,5,9/16/2019,9/18/2019,null
+
+3,3,6/10/2019,6/12/2019,6/12/2019
+4,3,6/12/2019,6/14/2019,6/14/2019
+
+5,3,6/07/2019,6/09/2019,6/09/2019
+5,7,6/08/2019,6/09/2019,6/09/2019
+5,8,6/06/2019,6/10/2019,6/10/2019
+5,9,6/07/2019,6/09/2019,6/09/2019
+
+2,2,9/10/2020,9/12/2020,null
+
+
+
+
+

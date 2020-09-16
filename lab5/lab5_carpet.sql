@@ -89,6 +89,7 @@ CREATE TABLE Customer_Trials (
 -- DELIMITER ;
 
 
+
 /* VIEWS */
 -- Find trials per customer
 ---- This is used to determine if a user can use another trial
@@ -154,6 +155,37 @@ CREATE VIEW Stagnate_Rugs AS
         WHERE Customer_Trials.inventory_id IS NULL 
             && Customer_Purchases.inventory_id IS NULL;
 
+/* Procedures */
+DELIMITER //
+CREATE PROCEDURE 
+    `INSERT_TRIAL`( -- inputs 
+        IN _customer_id INT, 
+        IN _inventory_id INT, 
+        IN _reserve_from DATE, 
+        IN _reserve_to DATE, 
+        IN _trial_return_date DATE
+    )
+    BEGIN 
+        DECLARE err_mssg CHAR(50); -- local variable
+        IF (SELECT COUNT(customer_id) FROM Agg_Customer_Trials WHERE customer_id = _customer_id)<=0 THEN    
+            INSERT INTO Customer_Trials(customer_id, 
+                                        inventory_id, 
+                                        reserve_from, 
+                                        reserve_to, 
+                                        trial_return_date) 
+            VALUES (_customer_id,_inventory_id,_reserve_from,
+                    _reserve_to,_trial_return_date);        
+        ELSE
+            SET err_mssg = 'Customer already has 4 trials';
+            SELECT @err_mssg; -- select is almost like return in sql. 
+                              -- when calling from application, all select
+                              -- statements are returned to application call,
+                              -- atleast in nodejs framework. 
+        END IF;  
+    END; //
+DELIMITER ; 
+
+
 /* INSERT TEST DATA */
 /* NOTE: SOME OF THE DATA IS EXPLAINED IN 'test_date.txt' */ 
 INSERT INTO Rugs(inventory_id, descript, purchase_price, date_acquired, list_price)
@@ -200,3 +232,9 @@ VALUES
     (5,8,"2019-6-06","2019-6-10","2019-6-10"),
     (5,9,"2019-6-07","2019-6-09","2019-6-09"),
     (2,2,"2020-9-10","2020-9-12",null); -- purchased
+
+
+-- The below call will check if a customer trial exists,
+-- if not, then an error is returned, which would be 
+-- returned to the call from the application program
+CALL INSERT_TRIAL(5,10,"2019-6-08","2019-6-09","2019-6-09");

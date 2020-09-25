@@ -4,7 +4,16 @@
     // for repopulating table after deletions. 
     function diff_rows($conn) {
         $default_types = array("Harmonic", "Narmonica", "Guitar", 
-            "Broomstick", "Ocarina", "Bouzouki", "Didgeridoo");
+            "Broomstick", "Ocarina", "Bouzouki", "Didgeridoo",
+            'Trumpet',
+            'Flute',
+            'Theremin',
+            'Violin',
+            'Tuba',
+            'Melodica',
+            'Trombone',
+            'Keyboard' 
+        );
         $existing_types = array(); 
         $dbquery = "SELECT InstType FROM Instruments.instruments";
         if(!$conn->query($dbquery)){
@@ -30,11 +39,11 @@
         echo "<p>This table has $n_rows and $n_cols columns.</p>\n";
         
         // Begin header 
-        echo "<form action='details.php' method='post'>";
+        echo "<form action='manageInstruments.php' method='post'>";
         echo "<table>\n<thead>\n<tr>";
 
         $fields = $result->fetch_fields();
-        echo "<td><b></b></td>";
+        echo "<td><b>Delete? </b></td>";
         for ($i=0; $i<$n_cols; $i++){
             echo "<td><b>" . $fields[$i]->name . "</b></td>";
         }

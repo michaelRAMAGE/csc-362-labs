@@ -21,8 +21,5 @@
         echo "Errno: " . $conn->connect_errno . "\n";
         echo "Error: " . $conn->connect_error . "\n";
         exit; // Quit this PHP script if the connection fails.
-    } else {
-        echo "Connected Successfully!" . "<br>";
-        echo "YAY!" . "<br><br>";
-    } 
+    }
 ?> 

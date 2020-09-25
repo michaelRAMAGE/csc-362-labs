@@ -14,7 +14,7 @@
         error_reporting(E_ALL);
 
         if (isset($_POST["populate"])) { // intercept request to repopulate with sample data
-            echo "Repopulating rows: ";
+            echo "Last action: Repopulating rows";
             $array_of_types = diff_rows($conn);
             $len = count($array_of_types);
             $fstring_of_types = ""; 
@@ -44,13 +44,14 @@
         }   
 
         if (isset($_POST['data'])) { // intercept post request to delete data
-            echo "Deleting rows";
+            echo "Last action: Deleting rows";
+            $del_stmt = $conn->prepare("DELETE FROM Instruments.instruments WHERE InstID = ?");
             foreach($_POST['data'] as $val) {
-                foreach ($val as $item) {
-                    $dbquery = "DELETE FROM Instruments.instruments WHERE InstID = $item";
-                    if (!$conn->query($dbquery)) {
+                foreach ($val as $id) {
+                    $del_stmt->bind_param('i', $id); 
+                    if (!$del_stmt->execute()) {
                         echo 'Unsuccessful query!';
-                        echo $dbconn->error; 
+                        echo $conn->error; 
                     }
                 }
             }
@@ -64,7 +65,6 @@
             exit;
         }
         $result = $conn->query($sql);
-
         result_to_table($result); // generate table from db query res
 
         $conn->close(); // clean up
@@ -72,7 +72,7 @@
     ?>
 
     <br>
-    <form action="details.php" method="post">
+    <form action="manageInstruments.php" method="post">
         Repopulate table <input type="submit" name="populate">
     </form>
 
